@@ -1,17 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Input } from "../../components";
 import { FormEvent, useState } from "react";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../services/firebaseConnection";
 
 export default function Login(): JSX.Element {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+	const navigate = useNavigate();
 
 	function handleSubmit(e: FormEvent): void {
 		e.preventDefault();
 
-		alert(`email: ${email}\nsenha: ${password}`)
+		if (email === undefined && password === undefined) {
+			alert("Por favor, entre com um e-mail e senha.");
+			return;
+		}
+
+		signInWithEmailAndPassword(auth, email, password)
+			.then(() => {
+				console.log("login realizado com sucesso.");
+				navigate("/admin");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	}
-	
+
 	return (
 		<>
 			<div className="flex flex-col items-center justify-center h-screen w-full">
@@ -24,7 +40,7 @@ export default function Login(): JSX.Element {
 					</h1>
 				</Link>
 
-				<form 
+				<form
 					onSubmit={handleSubmit}
 					className="w-full max-w-xl flex flex-col px-2"
 				>
