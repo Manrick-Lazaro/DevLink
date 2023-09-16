@@ -45,6 +45,7 @@ export default function Login(): JSX.Element {
 					className="w-full max-w-xl flex flex-col px-2"
 				>
 					<Input
+						type="text"
 						placeholder="Digite o seu E-mail..."
 						value={email}
 						onChange={(e) => {
@@ -52,6 +53,7 @@ export default function Login(): JSX.Element {
 						}}
 					/>
 					<Input
+						type="password"
 						placeholder="*******"
 						value={password}
 						onChange={(e) => {

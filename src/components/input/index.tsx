@@ -1,15 +1,12 @@
-import { InputHTMLAttributes } from "react"
+import { InputHTMLAttributes } from "react";
 
-interface iInput extends InputHTMLAttributes<HTMLInputElement>{
+interface iInput extends InputHTMLAttributes<HTMLInputElement> {}
 
-}
-
-export default function Input(props:iInput): JSX.Element {
+export default function Input(input: iInput): JSX.Element {
 	return (
-		<input 
-      type="text"
-      className="rounded-md h-9 border-0 outline-none px-2 mb-3"
-      {...props}
-    />
+		<input
+			className="rounded-md h-9 border-0 outline-none px-2 mb-3"
+			{...input}
+		/>
 	);
 }
