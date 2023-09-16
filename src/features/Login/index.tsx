@@ -21,7 +21,7 @@ export default function Login(): JSX.Element {
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
 				console.log("login realizado com sucesso.");
-				navigate("/admin");
+				navigate("/home");
 			})
 			.catch((error) => {
 				console.log(error);
