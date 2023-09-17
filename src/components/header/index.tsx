@@ -7,8 +7,8 @@ import { signOut } from "firebase/auth";
 
 export default function Header(): JSX.Element {
 	async function handleLogout(): Promise<void> {
-    await signOut(auth);
-  }
+		await signOut(auth);
+	}
 
 	return (
 		<>
@@ -16,8 +16,8 @@ export default function Header(): JSX.Element {
 				<nav className="w-full bg-white flex justify-between items-center px-3 py-3 rounded-md">
 					<div className="flex gap-5 font-medium">
 						<Link to="/home">Home</Link>
-						<Link to="/home/admin">Links</Link>
-						<Link to="/home/admin/social">Redes sociais</Link>
+						<Link to="/admin">Links</Link>
+						<Link to="/admin/social">Redes sociais</Link>
 					</div>
 					<div className="w-10 rounded-3xl">
 						<Button onClick={handleLogout}>

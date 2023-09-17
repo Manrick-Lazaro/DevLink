@@ -1,8 +1,9 @@
-import { ButtonsLinks, Footer } from "../../components";
+import { ButtonsLinks, Footer, Header } from "../../components";
 
 export default function Home(): JSX.Element {
 	return (
 		<div className="flex flex-col w-full py-3 items-center justify-center">
+			<Header />
 			<h1 className="text-white md:text-4xl text-3xl font-bold mt-20">
 				Não funciona
 			</h1>
