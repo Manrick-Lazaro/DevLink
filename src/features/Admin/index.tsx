@@ -4,7 +4,7 @@ import Header from "../../components/header";
 
 import { FiTrash } from "react-icons/fi";
 
-interface iLinks {
+export interface iLinks {
 	id: string;
 	name: string;
 	url: string;

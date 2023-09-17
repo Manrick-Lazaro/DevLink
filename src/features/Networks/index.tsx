@@ -1,13 +1,31 @@
 import { Button, Header, Input } from "../../components";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 
 import { db } from "../../services/firebaseConnection";
-import { setDoc, addDoc, getDoc, doc } from "firebase/firestore";
+import { setDoc, getDoc, doc } from "firebase/firestore";
 
 export default function Networks(): JSX.Element {
 	const [facebook, setFacebook] = useState("");
 	const [instagram, setinstagram] = useState("");
 	const [twitter, setTwitter] = useState("");
+
+	useEffect(() => {
+		function loadLinks(): void {
+			const docRef = doc(db, "social", "link");
+			getDoc(docRef)
+			.then((res) => {
+				if(res.data() !== undefined) {
+					setFacebook(res.data()?.facebook)
+					setinstagram(res.data()?.instagram)
+					setTwitter(res.data()?.twitter)
+				}
+			})
+
+		}
+
+		loadLinks();
+	}, [])
+
 
 	function handleRegister(e: FormEvent): void {
 		e.preventDefault();
@@ -18,6 +36,7 @@ export default function Networks(): JSX.Element {
 			twitter: twitter,
 		})
 			.then(() => {
+				alert("operação feita com sucesso.")
 				console.log("concluido");
 			})
 			.catch((e) => {
