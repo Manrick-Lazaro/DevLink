@@ -76,13 +76,18 @@ export default function Admin(): JSX.Element {
 			.then(() => {
 				setNameLink("");
 				setUrlLink("");
-				setColorNameLink("#fff");
-				setBackgroundColorLink("#222");
+				setColorNameLink("#ffffff");
+				setBackgroundColorLink("#222222");
 				alert("Cadastrado.");
 			})
 			.catch((error) => {
 				console.log("erro ao cadastrar no banco." + error);
 			});
+	}
+
+	async function handleDelete(id: string): Promise<void> {
+		const docRef = doc(db, "links", id);
+		await deleteDoc(docRef);
 	}
 
 	return (
@@ -170,22 +175,29 @@ export default function Admin(): JSX.Element {
 					Meus Links
 				</h1>
 
-				<div className="w-full flex justify-center mt-2 mb-1 items-center">
+				{links.map((link) => (
 					<article
-						className="flex justify-between items-center w-11/12 max-w-xl p-3 select-none rounded-md"
-						style={{ backgroundColor: "#254", color: "#fff" }}
+						key={link.id}
+						className="flex justify-between items-center w-11/12 max-w-xl p-3 select-none rounded-md mb-4"
+						style={{
+							backgroundColor: link.background,
+							color: link.colorName,
+						}}
 					>
-						<p>Canal do Youtube</p>
+						<p>{link.name}</p>
 						<div>
-							<button className="mt-1 border border-dashed p-1 bg-zinc-900 rounded">
+							<button
+								className="mt-1 border border-dashed p-1 bg-zinc-900 rounded"
+								onClick={() => handleDelete(link.id)}
+							>
 								<FiTrash
 									size={18}
-									color="#fff"
+									color="#ffffff"
 								/>
 							</button>
 						</div>
 					</article>
-				</div>
+				))}
 			</div>
 		</>
 	);
