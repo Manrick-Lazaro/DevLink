@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Input } from "../../components";
+import { Input, Button } from "../../components";
 import Header from "../../components/header";
+
+import { FiTrash } from "react-icons/fi";
 
 export default function Admin(): JSX.Element {
 	const [nameLink, setNameLink] = useState("");
@@ -61,22 +63,51 @@ export default function Admin(): JSX.Element {
 						</div>
 					</section>
 
-					<section className="flex flex-col justify-center items-center mb-5 p-1 border-gray-100/20 border rounded-md pb-2">
-						<label className="font-medium text-white mb-2 mt-2">
-							Preview
-						</label>
-						<article
-							className="w-11/12 max-w-lg flex flex-col items-center justify-between rounded px-1 py-3"
-							style={{
-								marginBottom: 0,
-								marginTop: 0,
-								backgroundColor: backgroundColorLink,
-							}}
-						>
-							<p style={{ color: colorNameLink }}>{nameLink}</p>
-						</article>
-					</section>
+					{nameLink !== "" && (
+						<section className="flex flex-col justify-center items-center mb-5 p-1 border-gray-100/20 border rounded-md pb-2">
+							<label className="font-medium text-white mb-2 mt-2">
+								Preview
+							</label>
+							<article
+								className="w-11/12 max-w-lg flex flex-col items-center justify-between rounded px-1 py-3"
+								style={{
+									marginBottom: 0,
+									marginTop: 0,
+									backgroundColor: backgroundColorLink,
+								}}
+							>
+								<p style={{ color: colorNameLink }}>
+									{nameLink}
+								</p>
+							</article>
+						</section>
+					)}
+
+					<div className="w-full mt-6 mb-12">
+						<Button>Cadastrar</Button>
+					</div>
 				</form>
+
+				<h1 className="font-bold text-white mb-4 text-2xl">
+					Meus Links
+				</h1>
+
+				<div className="w-full flex justify-center mt-2 mb-1 items-center">
+					<article
+						className="flex justify-between items-center w-11/12 max-w-xl p-3 select-none rounded-md"
+						style={{ backgroundColor: "#254", color: "#fff" }}
+					>
+						<p>Canal do Youtube</p>
+						<div>
+							<button className="mt-1 border border-dashed p-1 bg-zinc-900 rounded">
+								<FiTrash
+									size={18}
+									color="#fff"
+								/>
+							</button>
+						</div>
+					</article>
+				</div>
 			</div>
 		</>
 	);
