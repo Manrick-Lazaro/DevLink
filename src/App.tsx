@@ -6,11 +6,16 @@ import Login from "./features/Login";
 import Networks from "./features/Networks";
 
 import { Protected } from "./routes/protected";
+import Error from "./features/Error";
 
 const Routers = createBrowserRouter([
 	{
 		path: "/home",
-		element: <Home />,
+		element: (
+			<Protected>
+				<Home />
+			</Protected>
+		),
 	},
 	{
 		path: "/admin",
@@ -22,11 +27,19 @@ const Routers = createBrowserRouter([
 	},
 	{
 		path: "/admin/social",
-		element: <Networks />,
+		element: (
+			<Protected>
+				<Networks />
+			</Protected>
+		),
 	},
 	{
 		path: "/login",
 		element: <Login />,
+	},
+	{
+		path: "*",
+		element: <Error />,
 	},
 ]);
 
