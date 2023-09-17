@@ -12,7 +12,7 @@ export function Protected({ children }: props): any {
 	const [signed, setSigned] = useState(false);
 
 	useEffect(() => {
-		const unsub = onAuthStateChanged(auth, (user) => {
+		onAuthStateChanged(auth, (user) => {
 			if (user) {
 				setLoading(false);
 				setSigned(true);
