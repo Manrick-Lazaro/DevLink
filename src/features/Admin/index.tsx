@@ -1,8 +1,17 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { Input, Button } from "../../components";
 import Header from "../../components/header";
 
 import { FiTrash } from "react-icons/fi";
+
+interface iLinks {
+	id: string;
+	name: string;
+	url: string;
+	colorName: string;
+	background: string;
+	created: string;
+}
 
 import { db } from "../../services/firebaseConnection";
 import {
@@ -20,6 +29,34 @@ export default function Admin(): JSX.Element {
 	const [urlLink, setUrlLink] = useState("");
 	const [colorNameLink, setColorNameLink] = useState("#ffffff");
 	const [backgroundColorLink, setBackgroundColorLink] = useState("#222222");
+
+	const [links, setLinks] = useState<iLinks[]>([]);
+
+	useEffect(() => {
+		const linksRef = collection(db, "links");
+		const queryRef = query(linksRef, orderBy("created", "asc"));
+
+		const unsub = onSnapshot(queryRef, (snapshot) => {
+			let list = [] as iLinks[];
+
+			snapshot.forEach((doc) => {
+				list.push({
+					id: doc.id,
+					name: doc.data().name,
+					url: doc.data().url,
+					colorName: doc.data().colorName,
+					background: doc.data().background,
+					created: doc.data().created,
+				});
+			});
+
+			setLinks(list);
+		});
+
+		return () => {
+			unsub();
+		};
+	}, []);
 
 	function handleSubmit(e: FormEvent): void {
 		e.preventDefault();
