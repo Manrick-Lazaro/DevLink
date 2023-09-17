@@ -15,7 +15,7 @@ export default function Header(): JSX.Element {
 			<header className="w-full max-w-2xl mt-4 px-1">
 				<nav className="w-full bg-white flex justify-between items-center px-3 py-3 rounded-md">
 					<div className="flex gap-5 font-medium">
-						<Link to="/">Home</Link>
+						<Link to="/home">Home</Link>
 						<Link to="/home/admin">Links</Link>
 						<Link to="/home/admin/social">Redes sociais</Link>
 					</div>

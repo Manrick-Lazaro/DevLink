@@ -1,18 +1,35 @@
-import Home from "../features/Home";
-import Networks from "../features/Networks";
-import Admin from "../features/Admin";
+import { ReactNode, useState, useEffect } from "react";
+import { auth } from "../services/firebaseConnection";
+import { onAuthStateChanged } from "firebase/auth";
+import { Navigate } from "react-router-dom";
 
-export const protectedRoutes = [
-  {
-    path: "/home",
-    element: <Home />
-  },
-  {
-    path: "/home/admin",
-    element: <Admin />
-  },
-  {
-    path: "/home/admin/social",
-    element: <Networks />
+interface props {
+	children: ReactNode;
+}
+
+export function Protected({ children }: props): any {
+	const [loading, setLoading] = useState(true);
+	const [signed, setSigned] = useState(false);
+
+	useEffect(() => {
+		const unsub = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setLoading(false);
+				setSigned(true);
+			} else {
+				setLoading(false);
+				setSigned(false);
+			}
+		});
+	}, []);
+
+  if(loading) {
+    return <></>
   }
-];
+
+  if(!signed) {
+    return <Navigate to="/login" />
+  }
+
+	return children;
+}
