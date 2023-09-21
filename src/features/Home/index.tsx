@@ -85,7 +85,7 @@ export default function Home(): JSX.Element {
 					</span>
 				</h1>
 			</Link>
-			<span className="text-gray-50 mb-5 mt-3">Veja meus links</span>/
+			<span className="text-gray-50 mb-5 mt-3">Veja meus links</span>
 			<main className="flex flex-col w-11/12 max-w-xl text-center">
 				<ButtonsLinks links={links} />
 			</main>

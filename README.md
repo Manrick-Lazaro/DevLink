@@ -1,27 +1,75 @@
-# React + TypeScript + Vite
+<section align="center" style="margin-bottom: 2em">
+  <img src = "./public/Logo.png" width="300" height="200"></img> 
+  <div>
+    [Descrição](#descricao) •
+    [Tecnologias](#tecnologias) •
+    [Execução](#execucao) 
+  </div>
+</section>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição do Projeto <a name="descricao"></a>
 
-Currently, two official plugins are available:
+esse é um projeto baseado no LinkTree. O DevLink é um agregador de links, voce pode gerenciar diversos links pessoais na plataforma.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias utilizadas <a name="tecnologias"></a>
 
-## Expanding the ESLint configuration
+- [React 18.2.0](https://pt-br.reactjs.org/)
+- [Typescript 5.0.2](https://www.typescriptlang.org/)
+- [Node.js 18.13.0](https://nodejs.org/pt-br)
+- [Tailwind 3.3.3](https://tailwindcss.com)
+- [Firebase 10.3.1](https://console.firebase.google.com)
+- [Yarn 1.22.19](https://yarnpkg.com/)
+- [Prettier 2.8.8](https://prettier.io/)
+- [ESLint 8.42.0](https://eslint.org/)
+- [Vite 4.3.9](https://vitejs.dev/)
+- [Git](https://git-scm.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Execução do projeto <a name="execucao"></a>
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Ferramentas necessárias
+
+> Para executar o projeto, você precisa ter instalado em sua máquina as seguintes ferramentas:
+
+- [Git](https://git-scm.com)
+- [Node.js 18.13.0](https://nodejs.org/en/)
+- [Yarn 1.22.19](https://yarnpkg.com/)
+- Editor de código sugerido: [Visual Studio Code](https://code.visualstudio.com/)
+
+> Após a instalação de todas as ferramentas acima, prossiga:
+
+### Clone o repositório via HTTPS:
+
+```
+git clone https://gitlab.ifrn.edu.br/pnp/pnp-frontend.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Clone o repositório via SSH:
+
+```
+git clone git@gitlab.ifrn.edu.br:pnp/pnp-frontend.git
+```
+
+### Acesse o diretório gerado:
+
+```
+cd pnp-frontend/frontend
+```
+
+### Instale o gerenciador de pacotes Yarn:
+
+```
+npm install --global yarn
+```
+
+### Instale as dependências do projeto:
+
+```
+yarn
+```
+
+### Execute o projeto:
+
+```
+yarn dev
+```
