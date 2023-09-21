@@ -1,9 +1,9 @@
 <section align="center" style="margin-bottom: 2em">
   <img src = "./public/Logo.png" width="300" height="200"></img> 
   <div>
-    [Descrição](#descricao) •
-    [Tecnologias](#tecnologias) •
-    [Execução](#execucao) 
+    Descrição •
+    Tecnologias •
+    Execução 
   </div>
 </section>
 
