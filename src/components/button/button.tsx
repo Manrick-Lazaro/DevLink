@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-interface iButton {
+interface ButtonProps {
 	children: ReactNode;
 	onClick?: () => void;
 }
 
-export default function Button(props: iButton): JSX.Element {
+export default function Button(props: ButtonProps): JSX.Element {
 	const { children, onClick } = props;
 	return (
 		<button
