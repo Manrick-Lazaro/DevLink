@@ -11,24 +11,22 @@ export default function Header(): JSX.Element {
 	}
 
 	return (
-		<>
-			<header className="w-full max-w-2xl mt-4 px-1">
-				<nav className="w-full bg-white flex justify-between items-center px-3 py-3 rounded-md">
-					<div className="flex gap-5 font-medium">
-						<Link to="/home">Home</Link>
-						<Link to="/admin">Links</Link>
-						<Link to="/admin/social">Redes sociais</Link>
-					</div>
-					<div className="w-10 rounded-3xl">
-						<Button onClick={handleLogout}>
-							<BiLogOut
-								size={28}
-								color="#FFFFFF"
-							/>
-						</Button>
-					</div>
-				</nav>
-			</header>
-		</>
+		<header className="w-full max-w-2xl mt-4 px-1">
+			<nav className="w-full bg-white flex justify-between items-center px-3 py-3 rounded-md">
+				<div className="flex gap-5 font-medium">
+					<Link to="/home">Home</Link>
+					<Link to="/admin">Links</Link>
+					<Link to="/admin/social">Redes sociais</Link>
+				</div>
+				<div className="w-10 rounded-3xl">
+					<Button onClick={handleLogout}>
+						<BiLogOut
+							size={28}
+							color="#FFFFFF"
+						/>
+					</Button>
+				</div>
+			</nav>
+		</header>
 	);
 }
